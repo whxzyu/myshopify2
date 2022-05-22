@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2: Framing</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7e5a66b1-ad04-4070-a269-9673c26d9e82" class="page sans"><header><img class="page-cover-image" src="2%20Framing%207e5a66b1ad044070a2699673c26d9e82/Shopify_BBNotionTemplate_Cover_V2.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🪜</span></div><h1 class="page-title">2: Framing</h1></header><div class="page-body"><p id="a3e60086-8d7f-4bc4-b603-18b334ac37ee" class="block-color-teal"><mark class="highlight-teal"><strong>Section 2</strong></mark><mark class="highlight-teal"> // ●●○○
+</mark><mark class="highlight-teal"><strong>Quick Links: </strong></mark><mark class="highlight-teal"><strong><a href="1%20Planning%20e625cc8ba8bf4a5f87af440da8a77919.html"><span class="icon">✏️</span>1: Planning</a></strong></mark><mark class="highlight-teal"><strong> </strong></mark><mark class="highlight-teal"><strong><a href="3%20Building%20eb069c4816c34efe9cc912fa342bc192.html"><span class="icon">🏗️</span>3: Building</a></strong></mark><mark class="highlight-teal"><strong> </strong></mark><mark class="highlight-teal"> </mark><mark class="highlight-teal"><a href="4%20Growing%207dcf6e7f012b48aeb7f5df932dfa3e6d.html"><span class="icon">🌳</span>4: Growing</a></mark><mark class="highlight-teal"> | Dashboard:</mark><mark class="highlight-yellow"> </mark><mark class="highlight-yellow"><a href="../Shopify%20Business%20Blueprint%20913c210792e64be389ee1e7d3c78f7a4.html"><img class="icon" src="Shopify_BBNotionTemplate_Icon.jpg"/>Shopify Business Blueprint</a></mark><mark class="highlight-yellow"> </mark></p><div id="4bde3cea-f6c4-445d-8dca-d96b43e2baa0" class="column-list"><div id="be8679c8-2abd-491d-824c-a515c7402c79" style="width:43.75%" class="column"><figure id="10d0fd97-def8-499a-964e-2e9f157e2325" class="image"><a href="2%20Framing%207e5a66b1ad044070a2699673c26d9e82/Shopify_BBNotionTemplate_2_Framing_Widget.jpg"><img style="width:3950px" src="2%20Framing%207e5a66b1ad044070a2699673c26d9e82/Shopify_BBNotionTemplate_2_Framing_Widget.jpg"/></a></figure></div><div id="570cd08b-bf05-42c2-a6bb-753fd377bc94" style="width:56.25%" class="column"><p id="a43e9a7b-edeb-409e-8252-8d568a17844a" class="block-color-teal"><strong>Table of Contents</strong></p><nav id="13e525e8-4612-44b3-908d-a9c0af5988a5" class="block-color-teal table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#358bc9fe-fee5-4bdd-bfdb-3a85debe7de4">1. <strong>Navigate your competitive landscape</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3418f9be-7067-4a3e-a603-414f9a728d8e">2. <strong>Search online for competitors in your industry.
+</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#44a87d36-0b16-4501-b3f6-3a970f0e1900">1. <strong>Find your target audience</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#32ec1412-0a2e-4b12-a486-a1751882f3c2"><strong>2. Use this demographic chart </strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25f94feb-81d1-481e-8090-f97518f9d675">Start your business journey with Shopify</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#64b60bef-54dc-4034-a78f-87587e73b4e3"><a href="https://www.shopify.com/?utm_source=notion&amp;utm_medium=referral&amp;utm_campaign=bb&amp;utm_content=bae-bb-notion-template">Start 14-Day Free Trial</a></a></div></nav><p id="cb6e392b-c84f-4732-83ac-60f2e9e4ac10" class="block-color-teal">
+</p></div></div><hr id="6db892ab-35a4-4769-be46-935f1a1b2bdb"/><div id="2f8d4979-90f5-4651-be70-be8c41989cd5" class="column-list"><div id="eec03153-879b-4d23-9f9e-88c0e35efa80" style="width:43.75%" class="column"><h1 id="358bc9fe-fee5-4bdd-bfdb-3a85debe7de4" class="">1. <strong>Navigate your competitive landscape</strong></h1><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="4058fbd2-d48d-4400-9dd8-3187a1cf22e8"><div style="font-size:1.5em"><span class="icon">🔄</span></div><div style="width:100%"><strong><mark class="highlight-teal">Recap: </mark></strong><mark class="highlight-teal">In the first section, you established the “why” behind starting your business, and brainstormed ideas for your business.</mark></div></figure><p id="97bf47cf-c425-432c-ae6e-a47736157278" class="">
+</p><p id="9f99916c-1169-49ee-bfe5-3cf63fe21b33" class=""><strong>Navigating your competition will be something you’ll need to weather at every stage of your business.</strong></p><p id="d9748df4-23b1-4c16-9328-b15b3af52def" class="block-color-gray">However, that’s not necessarily a bad thing. Just because aspects of your idea exist in one form, doesn’t mean there isn’t room for another player in the market. The key to navigating your competition will be to think about what will allow your business to shine amongst your competitors. The success of a business can depend on its unique selling proposition (USP). A USP is what makes a business stand out from competitors and ultimately what makes it “unique”.</p><p id="a998b1b0-e2ed-444a-8c34-538701e1880a" class="block-color-gray">For example, let’s use the hot sauce market. Think of how many different hot sauces are at the grocery store. These companies all sell the same product (hot sauce), but they stand out in different ways. Some hot sauces are organic and use different peppers, some have bright and fun packaging, while some may have drawbacks like containing high amounts of sugar or sodium. USPs can include locally sourced ingredients, cool packaging, healthy ingredients, and more.</p><p id="fbff91ce-340d-4cf5-bbe6-c362d47f00a7" class="">
+</p><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="77b69f7d-d4f9-4b56-b682-478a18f5ee4b"><div style="font-size:1.5em"><span class="icon">🌐</span></div><div style="width:100%"><mark class="highlight-orange"><strong>Bonus Content: </strong></mark><mark class="highlight-orange">Read more </mark><a href="http://shopify.com/blog/unique-selling-proposition"><mark class="highlight-orange">here</mark></a><mark class="highlight-orange"> about how a unique selling proposition can make your business stand out.</mark></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="f231c943-c3d3-49a4-bc37-0440a620f8cf"><div style="font-size:1.5em"><span class="icon">⚡</span></div><div style="width:100%"><mark class="highlight-blue"><strong>Hot Tip: </strong></mark><mark class="highlight-blue">Think about more than just pricing. Compete by offering distinctive, quality products or services, targeting diverse audiences, and developing new and interesting features to highlight.</mark></div></figure></div><div id="a0357032-94f3-4b5b-994f-245a0eff1e45" style="width:56.25%" class="column"><p id="f659c76c-11bc-4edf-8a79-c1865d45b042" class="">
+</p><h3 id="3418f9be-7067-4a3e-a603-414f9a728d8e" class="">2. <strong>Search online for competitors in your industry.
+</strong></h3><p id="b7eb67e1-1c91-4861-a454-18662ea0d0aa" class=""><mark class="highlight-gray">You can make your business stand out by researching your competitors and finding where a USP could be most effective. Once you’ve found two competitors, fill out the following profiles, looking for gaps where you can position your business in a different way.</mark></p><p id="b1191b69-e964-4cc2-b42c-7c41bac59346" class="">
+</p><p id="03a9d7c8-03f0-4ccc-9746-6eb82acf550e" class=""><strong>Competitor 1</strong>:<strong> [Name]</strong></p><p id="445e7317-54ce-4980-9cea-b78cdd437965" class=""><mark class="highlight-gray">What do they do well?</mark></p><p id="31800cb6-5354-487a-ae37-f489206ea069" class=""><mark class="highlight-gray">What don’t they do well?</mark></p><p id="1d9d05b9-0c0e-400e-8c0d-964c310fb95b" class=""><mark class="highlight-gray">What can I do that is better or different?</mark></p><p id="96415b3f-3a2d-40db-85bf-9711bf0803f7" class="">
+</p><p id="2aaf30f1-1218-492c-a1d9-e519d0e59778" class=""><strong>Competitor 2</strong>:<strong> [Name]</strong></p><p id="4e0b2a10-4a92-4979-bb86-c4260069e4b9" class=""><mark class="highlight-gray">What do they do well?</mark></p><p id="89dfc197-3970-4f3a-9d15-a591b456813b" class=""><mark class="highlight-gray">What don’t they do well?</mark></p><p id="051298d7-2013-480c-b1fd-19ff0c8eedbc" class=""><mark class="highlight-gray">What can I do that is better or different?</mark></p></div></div><hr id="29a0ee22-1dcf-4a2e-870c-bdde147929f0"/><div id="5a666384-7f8a-4e29-b3c7-0b800708aa38" class="column-list"><div id="34665467-1d7b-4201-ba73-cbdeda6e9bf0" style="width:37.5%" class="column"><h1 id="44a87d36-0b16-4501-b3f6-3a970f0e1900" class="">1. <strong>Find your target audience</strong></h1><p id="260672a8-ed3a-4faa-93e3-a84c725eb377" class=""><strong>It would be great if everybody was a potential customer for your business, but that’s rarely ever the case.</strong></p><p id="9757ca2d-ca26-4567-b1f7-704968881865" class="block-color-gray">In fact, marketing your business is more difficult and less efficient when you don’t have a specific target in mind.</p><p id="24507520-5156-4d80-8bd4-5e37391b6edf" class="block-color-gray">Instead, think about who the <em>ideal audience </em>for your business would be — the groups of people who need the least amount of convincing or selling to buy from you.</p><p id="23c4e2df-1e68-489b-8ad7-b3c6c8cd9c82" class="block-color-gray">Your ideal audience profile doesn’t need to be 100% accurate (we’re using our imagination here), but this exercise should make it easier for you to make key decisions around product development, branding, and marketing with this audience in mind.</p><p id="ae72d946-66f8-443b-8b91-307e0a893e6e" class="block-color-gray">
+</p><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="cbde4452-28a0-41c4-bccf-486ff3345b82"><div style="font-size:1.5em"><span class="icon">🌐</span></div><div style="width:100%"><mark class="highlight-orange"><strong>Bonus Content:
+</strong></mark><mark class="highlight-orange">· Tips and insights on </mark><a href="https://shopify.com/blog/target-audience"><mark class="highlight-orange">defining your target audience</mark></a><mark class="highlight-orange">
+· Explore the </mark><a href="https://www.shopify.com/encyclopedia/target-market?utm_source=notion&amp;utm_medium=referral&amp;utm_campaign=bb&amp;utm_content=bae-bb-notion-template"><mark class="highlight-orange">Shopify business encyclopedia</mark></a></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="ecb83619-1d58-4740-9ee1-686c8dcb354f"><div style="font-size:1.5em"><span class="icon">⚡</span></div><div style="width:100%"><mark class="highlight-blue"><strong>Hot Tip: </strong></mark><mark class="highlight-blue">If you’re stuck on defining your ideal audience, consider conducting some deeper research. There are tons of insightful resources that can help you craft your target audience. Check out the bonus digital section for Shopify online resources.</mark></div></figure></div><div id="04b1bb21-7bb1-4c07-b0ed-c15a2b159773" style="width:62.5%" class="column"><p id="2b9f2e6d-1726-4bca-9fb1-075bc5e8bbc3" class="">
+</p><h2 id="32ec1412-0a2e-4b12-a486-a1751882f3c2" class=""><strong>2. Use this demographic chart </strong></h2><p id="7a3b2d47-3df3-4dec-8fc4-8f45cb5fe1ad" class="">Highlight all the items that best describe your ideal target audience.</p><table id="ddeb1bde-6505-4e43-9d87-005556019d51" class="simple-table"><tbody><tr id="24267187-f0ab-45c4-9703-1a908cd3b93e"><td id="Dg~h" class="block-color-teal_background" style="width:126px"><strong>Job industry</strong></td><td id="~Dl{" class="" style="width:91.00000762939453px">Hospitality</td><td id="mcN&gt;" class="" style="width:100.55555725097656px">Education</td><td id="|CIU" class="" style="width:101.66667175292969px">Healthcare</td><td id="lD?S" class="" style="width:105.8888931274414px">Automotive Travel</td><td id="=SVd" class="" style="width:86.00000762939453px">Tech</td><td id="rqgq" class="" style="width:93px">Shipping Logistics</td><td id="aW&lt;Y" class="" style="width:85.77778625488281px">Arts Design</td></tr><tr id="f5cc3c65-8993-4120-bc37-d48719b6fb73"><td id="Dg~h" class="block-color-teal_background" style="width:126px"><strong>Age range</strong></td><td id="~Dl{" class="" style="width:91.00000762939453px">12-17</td><td id="mcN&gt;" class="" style="width:100.55555725097656px">18-25</td><td id="|CIU" class="" style="width:101.66667175292969px">26-34</td><td id="lD?S" class="" style="width:105.8888931274414px">35-44</td><td id="=SVd" class="" style="width:86.00000762939453px">45-60</td><td id="rqgq" class="" style="width:93px">61-70</td><td id="aW&lt;Y" class="" style="width:85.77778625488281px">71+</td></tr><tr id="da113d04-8794-4f07-8d7b-2c7805e6a446"><td id="Dg~h" class="block-color-teal_background" style="width:126px"><strong>Gender</strong></td><td id="~Dl{" class="" style="width:91.00000762939453px">Male</td><td id="mcN&gt;" class="" style="width:100.55555725097656px">Female</td><td id="|CIU" class="" style="width:101.66667175292969px">Non-binary</td><td id="lD?S" class="" style="width:105.8888931274414px">Other</td><td id="=SVd" class="" style="width:86.00000762939453px"></td><td id="rqgq" class="" style="width:93px"></td><td id="aW&lt;Y" class="" style="width:85.77778625488281px"></td></tr><tr id="60d723e6-350a-4d49-b12c-3126167199a4"><td id="Dg~h" class="block-color-teal_background" style="width:126px"><strong>Tech savviness</strong></td><td id="~Dl{" class="" style="width:91.00000762939453px">Non-existent</td><td id="mcN&gt;" class="" style="width:100.55555725097656px">Beginner</td><td id="|CIU" class="" style="width:101.66667175292969px">Intermediate</td><td id="lD?S" class="" style="width:105.8888931274414px">Professional</td><td id="=SVd" class="" style="width:86.00000762939453px">Expert</td><td id="rqgq" class="" style="width:93px"></td><td id="aW&lt;Y" class="" style="width:85.77778625488281px"></td></tr><tr id="cde34b17-9d6b-4f84-a15d-f4cec79aec36"><td id="Dg~h" class="block-color-teal_background" style="width:126px"><strong>Hobbies</strong></td><td id="~Dl{" class="" style="width:91.00000762939453px">Reading Theatre</td><td id="mcN&gt;" class="" style="width:100.55555725097656px">Food + Wine Travel</td><td id="|CIU" class="" style="width:101.66667175292969px">Hiking Camping</td><td id="lD?S" class="" style="width:105.8888931274414px">Crafts 
+Fine arts</td><td id="=SVd" class="" style="width:86.00000762939453px">Health Fitness Sports</td><td id="rqgq" class="" style="width:93px">Cooking Baking</td><td id="aW&lt;Y" class="" style="width:85.77778625488281px">Music Podcasts</td></tr><tr id="507f7d2a-5175-4485-9a9e-04705c93a7d7"><td id="Dg~h" class="block-color-teal_background" style="width:126px"><strong>Spends time on</strong></td><td id="~Dl{" class="" style="width:91.00000762939453px">Instagram</td><td id="mcN&gt;" class="" style="width:100.55555725097656px">YouTube</td><td id="|CIU" class="" style="width:101.66667175292969px">Facebook</td><td id="lD?S" class="" style="width:105.8888931274414px">Snapchat</td><td id="=SVd" class="" style="width:86.00000762939453px">TikTok</td><td id="rqgq" class="" style="width:93px">Reddit</td><td id="aW&lt;Y" class="" style="width:85.77778625488281px">Pinterest</td></tr></tbody></table><p id="7b0d3605-bd03-466c-89cc-e7deb91fe724" class=""><strong>With this same target audience in mind, answer the following questions:
+</strong></p><p id="dd7a317f-c36a-4fad-a81f-645ccae80d4a" class=""><mark class="highlight-gray">What do they regularly purchase?</mark></p><p id="aff17792-a4f6-46a7-83f9-c275a23f6fce" class=""><mark class="highlight-gray">What do they splurge on?</mark></p><p id="590ef1c4-0076-4ab0-8fa2-fcd01cc0bfaf" class=""><mark class="highlight-gray">What’s most important to them when purchasing a product / service (price, reviews, quality)?</mark></p></div></div><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="249c81c4-bd10-4e65-87ae-2083fee1e4b6"><div style="font-size:1.5em"><span class="icon">👏</span></div><div style="width:100%"><mark class="highlight-blue"><strong>Great work! 
+</strong></mark><mark class="highlight-blue">Up next is </mark><mark class="highlight-blue"><a href="3%20Building%20eb069c4816c34efe9cc912fa342bc192.html"><span class="icon">🏗️</span>3: Building</a></mark><mark class="highlight-blue"> 
+or return to the main dashboard: </mark><mark class="highlight-yellow"><a href="../Shopify%20Business%20Blueprint%20913c210792e64be389ee1e7d3c78f7a4.html"><img class="icon" src="Shopify_BBNotionTemplate_Icon.jpg"/>Shopify Business Blueprint</a></mark></div></figure><hr id="8d7a6eeb-abbc-47a8-846e-4996455ccf37"/><div id="f9363864-1d62-4b8f-b47f-1366a17ad2b7" class="column-list"><div id="bebd9d23-8965-4e6d-b105-09e8e2981fb4" style="width:29.166666666666664%" class="column"><p id="e096e239-cc0c-4579-b3f0-1d84e2e0c2b2" class="">
+</p></div><div id="f428760e-7aab-498e-ad36-0b36e9761a28" style="width:41.666666666666664%" class="column"><h1 id="25f94feb-81d1-481e-8090-f97518f9d675" class="">Start your business journey with Shopify</h1><p id="d447a57e-a614-4e8d-aa44-f1a9bdf162a5" class="">Try Shopify for free, and explore all the tools and services you need to start, run, and grow your business.</p><h3 id="64b60bef-54dc-4034-a78f-87587e73b4e3" class=""><a href="https://www.shopify.com/?utm_source=notion&amp;utm_medium=referral&amp;utm_campaign=bb&amp;utm_content=bae-bb-notion-template">Start 14-Day Free Trial</a></h3><p id="e3d0702f-57b9-41e3-bcfc-71cd8b3925cf" class="">
+</p><p id="ff3a001f-e052-4493-9243-1fcfadb85b78" class="">Get started building your operating system with Notion - <a href="https://www.notion.so/pages/shopify-notion-startup-partnership">startups may qualify for $1000 in Notion credit</a></p></div><div id="5b9b03b5-a157-4e1e-8066-f8e7ea154df5" style="width:29.166666666666686%" class="column"><p id="60abed32-efc7-4226-934b-53f9304ec301" class="">
+</p></div></div><figure id="69f89dab-a656-455b-8f56-53ea0011b51e" class="image"><a href="Shopify.svg"><img style="width:192px" src="Shopify.svg"/></a></figure><figure id="28e86c2f-8583-4f6c-97d4-088d7a61ab56"><div class="source"><a href="https://embed.notionlytics.com/wt/ZXlKd1lXZGxTV1FpT2lKaU1EYzFOemRtWXpGbFpqTTBaRE14WVRreU5tSXdNMlF5T0dRME0ySTNaQ0lzSW5kdmNtdHpjR0ZqWlZSeVlXTnJaWEpKWkNJNkltUnJiMHRCY21OTllqbG5VSE53WkZkc1lrRnpJbjA9">https://embed.notionlytics.com/wt/ZXlKd1lXZGxTV1FpT2lKaU1EYzFOemRtWXpGbFpqTTBaRE14WVRreU5tSXdNMlF5T0dRME0ySTNaQ0lzSW5kdmNtdHpjR0ZqWlZSeVlXTnJaWEpKWkNJNkltUnJiMHRCY21OTllqbG5VSE53WkZkc1lrRnpJbjA9</a></div></figure></div></article></body></html>

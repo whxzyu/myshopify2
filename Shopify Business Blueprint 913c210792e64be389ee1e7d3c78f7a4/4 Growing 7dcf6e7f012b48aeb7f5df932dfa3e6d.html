@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>4: Growing</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7dcf6e7f-012b-48ae-b7f5-df932dfa3e6d" class="page sans"><header><img class="page-cover-image" src="4%20Growing%207dcf6e7f012b48aeb7f5df932dfa3e6d/Shopify_BBNotionTemplate_Cover_V2.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌳</span></div><h1 class="page-title">4: Growing</h1></header><div class="page-body"><p id="3a8db578-30b8-4fcb-b409-c180d69b4bd8" class="block-color-blue"><mark class="highlight-purple"><strong>Section 4</strong></mark><mark class="highlight-purple"> // ●●●●
+</mark><mark class="highlight-purple"><strong>Quick Links: </strong></mark><mark class="highlight-purple"><strong><a href="1%20Planning%20e625cc8ba8bf4a5f87af440da8a77919.html"><span class="icon">✏️</span>1: Planning</a></strong></mark><mark class="highlight-purple"><strong> </strong></mark><mark class="highlight-purple"> </mark><mark class="highlight-purple"><a href="2%20Framing%207e5a66b1ad044070a2699673c26d9e82.html"><span class="icon">🪜</span>2: Framing</a></mark><mark class="highlight-purple"> </mark><mark class="highlight-purple"><a href="3%20Building%20eb069c4816c34efe9cc912fa342bc192.html"><span class="icon">🏗️</span>3: Building</a></mark><mark class="highlight-purple"> | Dashboard:</mark><mark class="highlight-yellow"> </mark><mark class="highlight-yellow"><a href="../Shopify%20Business%20Blueprint%20913c210792e64be389ee1e7d3c78f7a4.html"><img class="icon" src="Shopify_BBNotionTemplate_Icon.jpg"/>Shopify Business Blueprint</a></mark><mark class="highlight-yellow"> </mark></p><div id="66b2dbc2-a5ad-4ab0-8c82-5a047b88a199" class="column-list"><div id="e8df6968-0ec1-40b0-a8e3-ce558b55035c" style="width:49.999999999999986%" class="column"><figure id="33a35661-3e1d-408d-a47e-6df49bdc10c0" class="image"><a href="4%20Growing%207dcf6e7f012b48aeb7f5df932dfa3e6d/Shopify_BBNotionTemplate_4_Growing_Widget.jpg"><img style="width:3950px" src="4%20Growing%207dcf6e7f012b48aeb7f5df932dfa3e6d/Shopify_BBNotionTemplate_4_Growing_Widget.jpg"/></a></figure><p id="1c582657-346b-4271-aa91-f211d4b0103a" class="">
+</p></div><div id="2e2b16bf-db93-403d-86f5-cb5954cf2d60" style="width:50.000000000000036%" class="column"><p id="1c27ba0e-8519-468b-a69d-3f3ef43e2cb8" class="block-color-teal"><mark class="highlight-purple"><strong>Table of Contents</strong></mark></p><nav id="6fe285ac-0401-45ac-88af-740d3e29646a" class="block-color-purple table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#46e5e83d-b1b2-4ce2-8c31-e46c81a8fca1"><strong>Make your first sale
+</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#39f91eeb-872a-43ee-a001-505639f27af4"><strong>Here are a few ways to make your first sale. </strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f85fda4f-b036-4f62-8133-528a6eaa6768"><strong>Set goals for your business</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#280f7207-86ce-46cc-8914-33d3cdb96e1d"><strong>Phase 1: Finding your product market fit
+</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1a56a285-8a2e-4cc0-bb37-05e81acd5f79"><strong>Phase 2: Scaling what works</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ea7b2570-b6c3-4fd2-836f-10c9176d317c"><strong>Phase 3: Taking your business to the next level</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b47fca56-b100-4a6f-a297-747b85e0a77b">Start your business journey with Shopify</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#82e0dde5-403b-4492-884b-f66acebaceaa"><a href="https://www.shopify.com/?utm_source=notion&amp;utm_medium=referral&amp;utm_campaign=bb&amp;utm_content=bae-bb-notion-template">Start 14-Day Free Trial</a></a></div></nav></div></div><hr id="2cc11647-4260-439d-aab8-d7d4dc7bde5a"/><h1 id="46e5e83d-b1b2-4ce2-8c31-e46c81a8fca1" class=""><strong>Make your first sale
+</strong></h1><div id="563c40f7-e3b5-4d85-b906-96d764f0e329" class="column-list"><div id="b5d57adf-dbd7-4784-8cf8-69a16a4dbdad" style="width:50%" class="column"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="4b0016b5-974e-4f67-b149-c90f6a63e4b5"><div style="font-size:1.5em"><span class="icon">🔄</span></div><div style="width:100%"><strong><mark class="highlight-teal">Recap: </mark></strong><mark class="highlight-teal">In the third section, you defined variable and fixed costs, and applied those costs to your business. You also calculated how many units you’d have to sell to break even, and started building your brand.</mark></div></figure><p id="acfd29f4-44b7-468d-ba41-6ad203d0fea0" class=""><strong>Pat yourself on the back. You’ve covered most of the ingredients you need to start your business.</strong></p><p id="9f6c5762-1c60-436a-a3ab-03b4fd17dc5e" class="block-color-gray">But a business isn’t a business without customers. For many entrepreneurs, getting that first sale is an experience they never forget.</p><p id="1a40c4d1-c4cd-4dd4-a5c5-1595d58cffae" class="block-color-gray">Your own first sale moment will be just as exciting for you, and it all starts with marketing and getting your business out there.</p><p id="8ecf2b93-fec3-4b06-a461-6308adeb194d" class="block-color-gray">There are hundreds of marketing tactics at your disposal. However, if you don’t prioritize based on your business, what you’re selling, and who you’re selling to, you can end up spending a lot of money on marketing without getting many sales in return. It’s best to start by picking the marketing strategies you want to focus on.</p></div><div id="9ccee075-1e3f-4b58-bea6-2ed5a8d62ac8" style="width:49.99999999999999%" class="column"><p id="448a6539-d228-43b6-89f9-a30eb2d1e1dd" class="">
+</p><p id="60df974e-48ef-4a9e-bfee-880435324d98" class="">
+</p><p id="299739cd-443f-4189-94bd-8662cebd1254" class="">
+</p><div id="2158d7b6-fbfa-4daa-986f-16a20e3ebe48" class="column-list"><div id="f8d41941-1dac-47d3-9c10-639d79d5bbef" style="width:50%" class="column"><blockquote id="4137e354-67c1-4ce7-b162-ec102ebe7b2c" class=""><mark class="highlight-teal"><em>“I’m sitting at home and a notification popped up. I checked it and practically leaped from my chair in shock. I had made my first sale! It took me two weeks after opening to make my first sale.”</em></mark></blockquote><p id="155bd319-6614-4110-8dfb-cf787efb5417" class=""><strong><mark class="highlight-teal">– Ran Moore, </mark></strong><a href="http://eliotgrey.com/"><strong><mark class="highlight-teal">eliotgrey.com</mark></strong></a></p></div><div id="b609e07b-5467-4c0c-8c30-ad29d33a73b1" style="width:50%" class="column"><blockquote id="97d68e60-2c89-4e50-869d-906b096efa07" class=""><mark class="highlight-teal"><em>“I was at the cashier at the car wash and heard a cha-ching sound. I looked at the cashier thinking it was her and she looked at me, then I saw my phone and realized it was the Shopify app!”</em></mark></blockquote><p id="ca08ac92-7729-427f-a611-a9b7a94f97d3" class=""><strong><mark class="highlight-teal">– Zoe Abel, </mark></strong><a href="http://marigoldshadows.com/"><strong><mark class="highlight-teal">marigoldshadows.com</mark></strong></a></p></div></div></div></div><p id="afc5c19c-dd32-4d04-aaa3-378d74df1dae" class="">
+</p><hr id="2695f8f6-a52c-490d-ab78-e1872581434b"/><h2 id="39f91eeb-872a-43ee-a001-505639f27af4" class=""><strong>Here are a few ways to make your first sale. </strong></h2><p id="6c0b4496-c633-4248-945d-55b032ead655" class=""><mark class="highlight-gray">These tactics eventually form a well-oiled marketing machine that can make people aware of your business, generate interest in your products, convince them to become customers, and encourage those customers to bring you more customers.</mark></p><div id="f9424b32-1a69-4bf5-bd02-3cacce304e2b" class="column-list"><div id="9b3ddad0-4967-4198-921e-e1131e7586a8" style="width:50%" class="column"><figure class="callout" style="white-space:pre-wrap;display:flex" id="de1ea8f5-064d-4df7-be55-7f537c8cde92"><div style="font-size:1.5em"><span class="icon">👋</span></div><div style="width:100%">Share your store and products with your immediate network of friends and family and any relevant online communities.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="f29ac48d-01db-4db9-8012-94d07c0b9011"><div style="font-size:1.5em"><span class="icon">🏷️</span></div><div style="width:100%">Offer a discount code, through channels like social media and email, to entice people to check out your store.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="7b964611-b292-4d56-b4f6-090558facd61"><div style="font-size:1.5em"><span class="icon">🤳</span></div><div style="width:100%">Share your store on your personal Facebook, Twitter, LinkedIn, Instagram, TikTok, and Snapchat accounts to announce it to your entire network.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="cc0c8105-febd-46fe-82a9-9133cc9a8338"><div style="font-size:1.5em"><span class="icon">💻</span></div><div style="width:100%">Join online communities like Reddit / Facebook Groups and post on forums that your target customers frequent.</div></figure></div><div id="bb6e577c-0546-4f25-a6bc-ba8d33bc549c" style="width:50%" class="column"><figure class="callout" style="white-space:pre-wrap;display:flex" id="1fde5b0b-bad6-47c8-8b28-199dcc35eec6"><div style="font-size:1.5em"><span class="icon">📣</span></div><div style="width:100%">Spend money on paid advertising on platforms like Facebook, Instagram, Pinterest, and Google Ads. You can dip your toe into paid ads by spending a small amount of your ad budget to start.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="a1796f49-80fa-4697-b696-7c34528f0b1f"><div style="font-size:1.5em"><span class="icon">📝</span></div><div style="width:100%">Reach out to up and coming bloggers or YouTubers, as they’re always on the lookout for fresh content. The story behind opening your store could be compelling enough for a blogger to highlight your business through a post or product review.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="79ef9ac1-f5e0-490f-a5ee-2910cb58348f"><div style="font-size:1.5em"><span class="icon">💬</span></div><div style="width:100%">Create your own word of mouth advertising. Engage your target audience where they gather offline. Give away some products as free samples that could leave your target audience wanting more.</div></figure><figure class="callout" style="white-space:pre-wrap;display:flex" id="5950e14f-fc06-409c-a4a6-5b427b0a01ba"><div style="font-size:1.5em"><span class="icon">🌟</span></div><div style="width:100%">Work with influencers to spread the word. Influencers exist on every online channel and vary in audience size. This is a great way to tap into an existing fanbase and get content created about your products.</div></figure></div></div><hr id="f04efd43-30a5-413b-914d-3136c55aaaba"/><h1 id="f85fda4f-b036-4f62-8133-528a6eaa6768" class=""><strong>Set goals for your business</strong></h1><div id="7d90ddde-302d-45a8-90ae-03a647f2c3bb" class="column-list"><div id="3993c03b-8c02-448f-a042-47b755b727c3" style="width:56.25%" class="column"><p id="83fd8e3f-7c4e-417a-ae05-23c9aeef01a3" class="">🎉 <strong>Congrats! If you’ve completed all the sections of The Business Blueprint, you’ve successfully transformed an idea into a plan that you can start turning into a business today.</strong></p><p id="ec03533f-626a-4335-9c46-9c35be3b19d2" class="block-color-gray">At this point, you’ve completed developing a solid business idea, found competitors, and a variable target audience. You’ve narrowed down products to sell, determined the break-even point for your business, as well as marketing opportunities for continued growth. </p><p id="f58e9d64-bc87-408c-9c1f-bb07e3ec73ab" class="block-color-gray">Now, you can look forward to the year ahead and set some goals broken down into a few phases:</p></div><div id="fc76e792-8eef-43f8-990b-91aa8f3f09c4" style="width:43.75%" class="column"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="a24461db-f740-4086-a6fd-b9f9109d6795"><div style="font-size:1.5em"><span class="icon">⚡</span></div><div style="width:100%"><mark class="highlight-blue"><strong>Hot Tip: </strong></mark><mark class="highlight-blue">Looking for ways to compile your goals? </mark><a href="https://shopify.com/blog/goal-setting?utm_source=notion&amp;utm_medium=referral&amp;utm_campaign=bb&amp;utm_content=bae-bb-notion-template"><mark class="highlight-blue">Check out these different approaches</mark></a><mark class="highlight-blue"> to setting, tracking, and conquering your goals.</mark></div></figure></div></div><div id="fbc58762-0e99-4152-8411-06b921fb13ed" class="column-list"><div id="2e56646d-bc51-4074-bf57-4721075efbdb" style="width:29.166666666666664%" class="column"><h3 id="280f7207-86ce-46cc-8914-33d3cdb96e1d" class=""><strong>Phase 1: Finding your product market fit
+</strong></h3><ul id="316043b5-00e8-4c12-8799-de3745d45a27" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Your first sale to a complete stranger</strong></span><p id="fd94cb3d-8f19-4cc8-baae-4025d1973ab1" class="block-color-gray">Making that first sale to someone not in the family photos is a significant milestone. Use the first sale opportunity as a way to forge a bond with a real, bonafide customer.</p></li></ul><ul id="d3bde5da-d288-4934-a2b3-a2ba5d651d6f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Your first store visits from web search
+</strong></span><p id="f73c15d2-63d7-439e-982c-ac102e129a1d" class="block-color-gray">There’s no better proof of product-market fit than someone searching the web and finding the products you’re selling.</p></li></ul><p id="bbaad0a7-4dfe-490a-a648-6150f6698791" class="">
+</p></div><div id="2eea7d36-f8d6-431e-881c-3b6b3d3960a9" style="width:33.333333333333336%" class="column"><h3 id="1a56a285-8a2e-4cc0-bb37-05e81acd5f79" class=""><strong>Phase 2: Scaling what works</strong></h3><ul id="7777c46e-7b25-46a8-8bc5-1f2b30b5f082" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Selling from paid advertising
+</strong></span><p id="76554151-2102-4f71-a7a1-53bfd9bb1d68" class="block-color-gray">One of your first goals should be to discover a repeatable and profitable approach to marketing, such as paid advertising. Platforms such as Instagram and Facebook allow you to scale success as you continue to refine your target audience.</p></li></ul><ul id="19846213-da4f-4849-a777-48616caf6aae" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Positive ROI from your organic marketing channels
+</strong></span><p id="d8f13dce-7926-410d-8dbf-6428f063d85b" class="block-color-gray">Social media, search engine optimization (SEO), and content marketing often make up a sizable amount of total marketing spend but should attract quality traffic to a website in return.</p></li></ul><ul id="e98ce718-6efa-4db5-9899-e3251194cdf7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>You start seeing consistent orders
+</strong></span><p id="b3d7b742-8a10-4c1d-a5e3-8851a97125e1" class="block-color-gray">You’ll know you’ve nailed product-market fit when you receive a steady stream of orders, whether that’s once a day for low-ticket items, or weekly for higher-ticket items.</p></li></ul></div><div id="97b09e61-2ca5-4531-87e8-923f91e4cc1e" style="width:37.500000000000014%" class="column"><h3 id="ea7b2570-b6c3-4fd2-836f-10c9176d317c" class=""><strong>Phase 3: Taking your business to the next level</strong></h3><ul id="1ee8ae65-a725-4aba-9fc0-5f856413b533" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Outsource a business-related task</strong></span><p id="6200f484-b7cb-4463-8a98-59610e980589" class="block-color-gray">When you first start working on a business, you often have to do everything yourself. But as your business grows, consider hiring professionals to help with marketing, design, and even product manufacturing. That way, you can focus on growing your business and not just running it.</p></li></ul><ul id="cc0e6450-13b6-43e4-a4d4-e57184ea138b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Your first shopping spike</strong></span><p id="68f37865-7835-4409-9c16-9fa7b9be09b0" class="block-color-gray">Take advantage of shopping surges from flash sales, Black Friday and Cyber Monday, and other seasonal events. Just make sure you’re prepared for the increased orders, supplies, and customer support required during these periods.</p></li></ul><ul id="80acdaf6-c060-4b86-b5c6-400c6d363e8c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>You take a vacation
+</strong></span><p id="8bd90986-01c3-4afd-82c3-527df35adbca" class="block-color-gray">You’ve put your absolute all into starting your business, and you deserve an opportunity to rest before jumping back in. Self care is really important to keep you and your business at your best. Make sure to take breaks and recharge regardless of what phase your business is in, this will ensure you can come back stronger.</p><p id="65aa7666-c53d-47f3-aa31-6c2ff63286a9" class="">
+</p></li></ul></div></div><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="374e1b92-8eb0-4728-82b6-1c0b0b615d45"><div style="font-size:1.5em"><span class="icon">👏</span></div><div style="width:100%"><mark class="highlight-blue"><strong>Great work! 
+</strong></mark><mark class="highlight-blue">Return to the main dashboard: </mark><mark class="highlight-yellow"><a href="../Shopify%20Business%20Blueprint%20913c210792e64be389ee1e7d3c78f7a4.html"><img class="icon" src="Shopify_BBNotionTemplate_Icon.jpg"/>Shopify Business Blueprint</a></mark></div></figure><p id="842efaf5-c283-4caf-bbac-199f30a2fb53" class="">
+</p><hr id="fa3679fb-6b08-4fce-b847-db98759d8b77"/><div id="1e16491b-aaaf-4f76-a5fa-da309c4d3d8c" class="column-list"><div id="773efb19-d11d-4667-a807-fc88deaf05fb" style="width:29.166666666666664%" class="column"><p id="c8d0a998-acd0-4fa9-8e22-ab30fe96d869" class="">
+</p></div><div id="8f761511-ac49-4ba9-94f1-c608e1fb3d40" style="width:41.666666666666664%" class="column"><h1 id="b47fca56-b100-4a6f-a297-747b85e0a77b" class="">Start your business journey with Shopify</h1><p id="2f47edb6-c740-48de-b19b-45d0b37cc5ea" class="">Try Shopify for free, and explore all the tools and services you need to start, run, and grow your business.</p><h3 id="82e0dde5-403b-4492-884b-f66acebaceaa" class=""><a href="https://www.shopify.com/?utm_source=notion&amp;utm_medium=referral&amp;utm_campaign=bb&amp;utm_content=bae-bb-notion-template">Start 14-Day Free Trial</a></h3><p id="935fa56a-2c15-4a48-acc0-d5c40e51bce1" class="">
+</p><p id="7eca6e52-e987-46bb-a431-9a70ddd0a116" class="">Get started building your operating system with Notion - <a href="https://www.notion.so/pages/shopify-notion-startup-partnership">startups may qualify for $1000 in Notion credit</a></p></div><div id="d30f0812-318b-46f5-a9e4-b0182d4d7afe" style="width:29.166666666666686%" class="column"><p id="1ff800a5-8a76-497b-9bc9-fe968ff02cdb" class="">
+</p></div></div><figure id="d9a74b25-fa77-4013-9db4-932b36bb0aec" class="image"><a href="Shopify.svg"><img style="width:192px" src="Shopify.svg"/></a></figure><figure id="1cdc5898-2127-4109-92e6-c0ddbd4dd027"><div class="source"><a href="https://embed.notionlytics.com/wt/ZXlKd1lXZGxTV1FpT2lJMlptTTRaRGMxWXpjNFpUYzBOamxpT0dVeU1UQmtNRGN3WTJJME56ZGxNaUlzSW5kdmNtdHpjR0ZqWlZSeVlXTnJaWEpKWkNJNkltUnJiMHRCY21OTllqbG5VSE53WkZkc1lrRnpJbjA9">https://embed.notionlytics.com/wt/ZXlKd1lXZGxTV1FpT2lJMlptTTRaRGMxWXpjNFpUYzBOamxpT0dVeU1UQmtNRGN3WTJJME56ZGxNaUlzSW5kdmNtdHpjR0ZqWlZSeVlXTnJaWEpKWkNJNkltUnJiMHRCY21OTllqbG5VSE53WkZkc1lrRnpJbjA9</a></div></figure></div></article></body></html>
